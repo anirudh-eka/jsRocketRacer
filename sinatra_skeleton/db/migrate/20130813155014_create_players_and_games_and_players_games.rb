@@ -11,7 +11,7 @@ class CreatePlayersAndGamesAndPlayersGames < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :players_games do |t|
+    create_table :games_players do |t|
       t.references :player, :game
     end
   end
