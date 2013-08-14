@@ -1,3 +1,11 @@
+header {
+  font-size: 80px;
+  color: #FFD700;
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+  width: 100%;
+}
+
 .racer_table td {
   /*background-color: black;*/
   height: 20px;
@@ -15,20 +23,32 @@
 #url {
   background-color: white;
   color: black;
-  /*display: none;*/
+  display: none;
 }
 
 body {
   position: fixed;
-  /*background-color: black;*/
+  background-color: black;
 }
 
 #jay {
   display: none;
+  background-image: url("http://www.boomshots.com/wp-content/uploads/2013/07/jay-z.jpg");
+  height: 500px;
+  width: 400px;
 }
 
-.victory {   
-background-image: url("http://www.boomshots.com/wp-content/uploads/2013/07/jay-z.jpg");
+#ye {
+  display: none;
+  background-image: url("http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/06/kanye_061113.jpg");
+  height: 365px;
+  width: 685px;
+  padding: 0px;
+}
+
+#jay, #ye {  
+color: red;
+font-weight: bold; 
 position: absolute;
 z-index: 2000; 
 text-align: center;
@@ -37,11 +57,13 @@ text-align: center;
 /*opacity: .65; */  
 top: 80px;   
 left: 600px;   
-height: 500px;   
-width: 400px; 
+/*height: 500px;   */
+/*width: 400px; */
 }
 
-.victory .text {
-  color: red;
-  padding-top: 300px;
+#jay .text{
+  padding-top: 275px;
+}
+#ye .text {
+  padding-top: 220px;
 }

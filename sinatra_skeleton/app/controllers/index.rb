@@ -36,6 +36,12 @@ post '/results/:game_id' do
 end
 
 post '/test' do
+  game = Game.where(id: session[:game_id]).pop
+  
+  game.winner = params[:winner]
+  @winner = game.winner
+  game.winner_time = params[:winner_time]
+  @time = game.winner_time 
 
   jdata = params[:winner]
 
