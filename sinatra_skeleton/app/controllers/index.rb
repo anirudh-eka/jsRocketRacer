@@ -1,5 +1,8 @@
 get '/' do
   if session[:game_id]
+    @game_id = session[:game_id] 
+    @results_url = "/results/#{@game_id}"
+
     erb :index
   else
     redirect '/create_game'
@@ -12,12 +15,30 @@ get '/create_game' do
 end
 
 post '/create_game' do
-  Game.create()
-  # session[:game_id] = 
+  @game = Game.create
+  @player_1 = Player.create(name: params[:player_1_name])
+  @player_2 = Player.create(name: params[:player_2_name])
+  @game.players << @player_1
+  @game.players << @player_2
+  session[:game_id] = @game.id 
+  puts "*" * 50
+  p @results_url
   redirect '/'  
 end
 
 get '/results/:game_id' do
-
-  erb :results
+  redirect "/results/#{params[:game_id]}", 307 
 end
+
+post '/results/:game_id' do
+  "RESULTS"
+  # erb :results
+end
+
+post '/test' do
+
+  jdata = params[:winner]
+
+  "#{jdata}"
+end
+

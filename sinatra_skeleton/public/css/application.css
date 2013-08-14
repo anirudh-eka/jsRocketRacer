@@ -1,5 +1,5 @@
 .racer_table td {
-  background-color: black;
+  /*background-color: black;*/
   height: 20px;
   width: 20px;
   color: red;
@@ -12,6 +12,36 @@
 
 }
 
+#url {
+  background-color: white;
+  color: black;
+  /*display: none;*/
+}
+
 body {
-  background-color: black;
+  position: fixed;
+  /*background-color: black;*/
+}
+
+#jay {
+  display: none;
+}
+
+.victory {   
+background-image: url("http://www.boomshots.com/wp-content/uploads/2013/07/jay-z.jpg");
+position: absolute;
+z-index: 2000; 
+text-align: center;
+/*padding-top: 100px;*/
+/*vertical-align: text-bottom;*/
+/*opacity: .65; */  
+top: 80px;   
+left: 600px;   
+height: 500px;   
+width: 400px; 
+}
+
+.victory .text {
+  color: red;
+  padding-top: 300px;
 }

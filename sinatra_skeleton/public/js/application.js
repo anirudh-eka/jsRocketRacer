@@ -4,18 +4,39 @@ $(document).ready(function() {
   var strokes_p2 = 0;
   var player_avatar = "<img src='../../../futurama_ship.gif' height='200' width='200'>";
   var fire = "<img src='../../../fire.jpg' height='100' width='100'>";
+  var result_url = $('#url').text()
 
-  var resetRace = function() {
+  var resetRace = function(winner) {
     // $('#player2_strip td.active').removeClass('active');
     // $('#player1_strip td.active').removeClass('active');
+    // $.post('ajax/test.html', function(data) {
+    //   $('.result').html(data);
+    // });
 
-    $('#player1_strip').children().remove();
-    $('#player2_strip').children().remove();
+    var data = {
+      winner: winner
+    };
 
-    $('#player2_strip').append("<td class = 'active'>"+player_avatar+"</td>");
-    $('#player1_strip').append("<td class = 'active'>"+player_avatar+"</td>");
-    strokes_p1 = 0; 
-    strokes_p2 = 0;
+    request = $.ajax({
+      type: "POST",
+      url: "/test",
+      data: data,
+    });
+
+    request.done(function(response){
+
+      $('#jay').fadeIn('slow');
+      // alert(response);
+    });
+    // alert(result_url)
+    // document.location.href= result_url
+    // $('#player1_strip').children().remove();
+    // $('#player2_strip').children().remove();
+
+    // $('#player2_strip').append("<td class = 'active'>"+player_avatar+"</td>");
+    // $('#player1_strip').append("<td class = 'active'>"+player_avatar+"</td>");
+    // strokes_p1 = 0; 
+    // strokes_p2 = 0;
   };
 
 
@@ -29,7 +50,8 @@ $(document).ready(function() {
       }
       else {
         alert("Player 1 wins!");
-        resetRace();
+
+        resetRace("Player 1");
         
       } 
     }
@@ -39,8 +61,9 @@ $(document).ready(function() {
         strokes_p2++;
       }
       else {
-        resetRace();
         alert("Player 2 wins!");
+        resetRace("Player 2");
+        // document.location.href='/results'
       }
     } 
 
