@@ -40,8 +40,7 @@ post '/test' do
   
   game.winner = params[:winner]
   @winner = game.winner
-  game.winner_time = params[:winner_time]
-  @time = game.winner_time 
+  game.save
 
   jdata = params[:winner]
 
